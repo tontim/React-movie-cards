@@ -1,29 +1,42 @@
-import React, { FormEventHandler, useState } from "react";
+import React, { FormEventHandler, ChangeEventHandler, ReactElement, useState,  } from "react";
+import { IAddMovie } from "../interfaces";
 
 //import ""./css/Addmovie.css"
 
-function Addmovie() {
-    const [title, setTitle] = useState("");
-    const [rating, setRating] = useState(0);
-    const [genre, setGenre] = useState("");
-    const [description, setDescription] = useState("");
+export function AddMovie(): ReactElement {
 
-    const handleOnSubmit(): FormEventHandler<HTMLFormElement> = (e) => {
+    const [title, setTitle] = useState<string>("");
+    const [rating, setRating] = useState<string>("");
+    const [genre, setGenre] = useState<string>("");
+    const [description, setDescription] = useState<string>("");
+
+    const handleOnSubmit: FormEventHandler<HTMLFormElement> = (e) => {
         e.preventDefault();
         console.log({title, rating, genre, description});
+    };
 
-    }
+    const handleOnChange: ChangeEventHandler<HTMLInputElement> = (e) => {
+        const {name, value } = e.target;
+        switch (name) {
+            case "title":
+                setTitle(value);
+                break;
+        }
+    };
+
     return (
-        <form onSubmit={handleOnSubmit}>
+        <form className="add-movie" onSubmit={handleOnSubmit}>
             <div>
+                <label htmlFor="title">Title:</label>
                 <input 
-                type="text"
-                id="title"
-                name="title"
-                value={movie.title}
-                onChange={handleChange}
+                    type="text"
+                    id="title"
+                    name="title"
+                    value={title}
+                    onChange={handleOnChange}
                 />
             </div>
+            <button type="submit">Add Movie</button>
         </form>
     );
 }

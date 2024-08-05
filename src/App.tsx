@@ -1,4 +1,4 @@
-import { Addmovie } from ".";
+import { AddMovie } from ".";
 import "./css/App.css";
 
 export function App() {

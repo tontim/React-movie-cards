@@ -1,5 +1,4 @@
-export interface IAddmovie {
-    id: number;
+export interface IAddMovie {
     title: string;
     rating: number;
     genre: string;
