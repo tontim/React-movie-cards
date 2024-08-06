@@ -1,7 +1,8 @@
 import { FormEventHandler, ChangeEventHandler, ReactElement, useState,  } from "react";
-import { Range } from ".";
+import { Range, Genre, Description } from ".";
+import { genres } from "../data/data";
 import { IAddMovie } from "../interfaces";
-
+ 
 import "../css/Addmovie.css"
 
 export function AddMovie(): ReactElement {
@@ -11,23 +12,20 @@ export function AddMovie(): ReactElement {
     const [genre, setGenre] = useState<string>("");
     const [description, setDescription] = useState<string>("");
 
-    const handleOnSubmit: FormEventHandler<HTMLFormElement> = (e) => {
+    const handleSubmit: FormEventHandler<HTMLFormElement> = (e) => {
         e.preventDefault();
         console.log({title, rating, genre, description});
     };
-
-    const handleOnChange: ChangeEventHandler<HTMLInputElement> = (e) => {
-        const {name, value } = e.target;
-        switch (name) {
-            case "title":
-                setTitle(value);
-                break;
-        }
-    };
-    //<input label="title" onChange={(e) => setTitle(e.target.value)} type="text" value={title} />
     
+    const handleClear = () => {
+        setTitle("");
+        setRating("1");
+        setGenre("");
+        setDescription("");
+    }
+
     return (
-        <form className="add-movie" onSubmit={handleOnSubmit}>
+        <form className="add-movie" onSubmit={handleSubmit}>
             <div className="container">
                 <label htmlFor="title">Title:</label>
                 <input
@@ -43,8 +41,20 @@ export function AddMovie(): ReactElement {
                     onChange={(e) => setRating(e.target.value)}
                     value={rating}
                 />
+                <Genre 
+                    label="Genre"
+                    onChange={(e) => setGenre(e.target.value)}
+                    genres={genres}
+                    value={genre}
+                    />
+                <Description
+                    label="Description"
+                    type="text"
+                    onChange={(e) => setDescription(e.target.value)}
+                    value={description}
+                />
 
-                <button type="reset">Clear</button>
+                <button type="button" onClick={handleClear}>Clear</button>
                 <button type="submit">Add</button>
             </div>
         </form>
