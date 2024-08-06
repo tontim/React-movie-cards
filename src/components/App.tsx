@@ -1,10 +1,11 @@
 import { AddMovie } from ".";
-import "./css/App.css";
+import { IAddMovie } from "../interfaces";
+import "../css/App.css";
 
 export function App() {
   return (
     <>
-      <Addmovie />
+      <AddMovie />
     </>
   );
 }

@@ -1,1 +1,2 @@
-export * from "./Addmovie";
+export * from "./AddMovie";
+export * from "./Range.tsx";

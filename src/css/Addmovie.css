@@ -1,0 +1,46 @@
+.add-movie .container {
+    width: 400px;
+    padding:20px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    border-style: solid;
+    border-radius: 25px;
+    border-width: 2px;
+    border-color: #007bff;
+  }
+  
+  .add-movie .container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .add-movie label {
+    margin-bottom: 0.5rem;
+  }
+  
+  .add-movie input,
+  .add-movie textarea {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .add-movie textarea {
+    height: 100px;
+    resize: vertical;
+  }
+  
+  .add-movie button {
+    flex-direction: row;
+    text-align: left;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 60px;
+  }
+  
